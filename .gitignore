@@ -1,0 +1,5 @@
+/.apt_generated
+build.properties
+target
+war/WEB-INF/lib
+war/WEB-INF/classes
