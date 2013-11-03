@@ -25,6 +25,19 @@
         <updatePolicy>never</updatePolicy>
       </releases>
     </repository>
+    <!-- ここからアプリケーション固有 -->
+    <repository>
+       <id>twitter4j.org</id>
+       <name>twitter4j.org Repository</name>
+       <url>http://twitter4j.org/maven2</url>
+       <releases>
+          <enabled>true</enabled>
+       </releases>
+       <snapshots>
+          <enabled>true</enabled>
+       </snapshots>
+    </repository>
+    <!-- ここまでアプリケーション固有 -->
   </repositories>
   <pluginRepositories>
     <pluginRepository>
@@ -102,6 +115,11 @@
       <scope>test</scope>
     </dependency>
     <!-- ここからアプリケーション固有 -->
+    <dependency>
+       <groupId>org.twitter4j</groupId>
+       <artifactId>twitter4j-core</artifactId>
+       <version>[3.0,)</version>
+    </dependency>
     <!-- ここまでアプリケーション固有 -->
   </dependencies>
   <build>
