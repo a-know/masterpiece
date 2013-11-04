@@ -1,19 +1,21 @@
 package com.aknow.masterpiece.controller;
 
+import java.io.IOException;
+
 import net.arnx.jsonic.JSON;
-import org.slim3.controller.Controller;
+import net.arnx.jsonic.JSONException;
+
 import org.slim3.controller.Navigation;
 
 import com.aknow.masterpiece.service.AddStarService;
 import com.aknow.masterpiece.util.Consts;
-import com.aknow.masterpiece.util.UtilityMethods;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 
-public class AddStarController extends Controller {
+public class AddStarController extends BaseController {
 
     @Override
-    public Navigation run() throws Exception {
+    public Navigation runImpl() throws JSONException, IOException {
 
         this.response.setContentType(Consts.CONTENT_TYPE);
 
@@ -22,13 +24,8 @@ public class AddStarController extends Controller {
 
         Key key = KeyFactory.stringToKey(keyValue);
 
-        try{
-            AddStarService service = new AddStarService();
-            JSON.encode(service.addStar(key), this.response.getOutputStream());
-        }catch(Exception e){
-            throw UtilityMethods.sendErrorMail(this.getClass().getName(), e);
-        }
-
+        AddStarService service = new AddStarService();
+        JSON.encode(service.addStar(key), this.response.getOutputStream());
 
         return null;
     }

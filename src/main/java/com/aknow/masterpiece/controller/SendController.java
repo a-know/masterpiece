@@ -5,42 +5,37 @@ import java.util.Map;
 
 import net.arnx.jsonic.JSON;
 
-import org.slim3.controller.Controller;
 import org.slim3.controller.Navigation;
 import org.slim3.memcache.Memcache;
 
 import com.aknow.masterpiece.service.SendMessageService;
 import com.aknow.masterpiece.util.Consts;
-import com.aknow.masterpiece.util.UtilityMethods;
 
-public class SendController extends Controller {
+public class SendController extends BaseController {
 
-    @Override
-    public Navigation run() throws Exception {
+	@Override
+	public Navigation runImpl() throws Exception {
 
-        try{
-            this.response.setContentType(Consts.CONTENT_TYPE);
+		this.response.setContentType(Consts.CONTENT_TYPE);
 
-            //入力情報を取得
-            String to = this.request.getParameter("to");
-            String sender = this.request.getParameter("sender");
-            String content = this.request.getParameter("content");
+		//入力情報を取得
+		String to = this.request.getParameter("to");
+		String sender = this.request.getParameter("sender");
+		String content = this.request.getParameter("content");
 
-            SendMessageService service = new SendMessageService();
-            service.sendMessage(to, sender, content);
+		SendMessageService service = new SendMessageService();
+		service.sendMessage(to, sender, content);
 
-            Map<String, Object> map = new HashMap<String, Object>();
-            map.put("errorCode", "0");
-            map.put("to", to);
-            map.put("sender", sender);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("errorCode", "0");
+		map.put("to", to);
+		map.put("sender", sender);
 
-            //delete memcache
-            Memcache.delete(Consts.UnreadMessageNumber_KEY + to);
+		//delete memcache
+		Memcache.delete(Consts.UnreadMessageNumber_KEY + to);
 
-            JSON.encode(map, this.response.getOutputStream());
-        }catch(Exception e){
-            throw UtilityMethods.sendErrorMail(this.getClass().getName(), e);
-        }
-        return null;
-    }
+		JSON.encode(map, this.response.getOutputStream());
+
+		return null;
+	}
 }

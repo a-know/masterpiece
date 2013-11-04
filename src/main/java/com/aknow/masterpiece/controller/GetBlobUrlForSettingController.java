@@ -5,17 +5,16 @@ import java.util.Map;
 
 import net.arnx.jsonic.JSON;
 
-import org.slim3.controller.Controller;
 import org.slim3.controller.Navigation;
 
 import com.aknow.masterpiece.util.Consts;
 import com.google.appengine.api.blobstore.BlobstoreService;
 import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
 
-public class GetBlobUrlForSettingController extends Controller {
+public class GetBlobUrlForSettingController extends BaseController {
 
     @Override
-    public Navigation run() throws Exception {
+    public Navigation runImpl() throws Exception {
         this.response.setContentType(Consts.CONTENT_TYPE);
 
         Map<String, String> map = new HashMap<String, String>();
