@@ -115,6 +115,16 @@
       <scope>test</scope>
     </dependency>
     <!-- ここからアプリケーション固有 -->
+	<dependency>
+		<groupId>net.arnx</groupId>
+		<artifactId>jsonic</artifactId>
+		<version>1.2.7</version>
+	</dependency>
+	<dependency>
+		<groupId>commons-codec</groupId>
+		<artifactId>commons-codec</artifactId>
+		<version>1.2</version>
+	</dependency>
     <dependency>
        <groupId>org.twitter4j</groupId>
        <artifactId>twitter4j-core</artifactId>

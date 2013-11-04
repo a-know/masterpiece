@@ -1,6 +1,7 @@
 package com.aknow.masterpiece.util;
 
 public class Consts {
+	public static final String CONTENT_TYPE = "application/json; charset=UTF-8";
     public static final String UserMapInfo_KEY = "UserMapInfo_KEY";
     public static final String UnreadMessageNumber_KEY = "UnreadMessageNumber_KEY";
     public static final String AllActivityData_KEY = "AllActivityData_KEY";

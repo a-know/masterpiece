@@ -1,5 +1,6 @@
 package com.aknow.masterpiece.util;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -21,6 +22,9 @@ import com.google.appengine.api.blobstore.BlobstoreService;
 import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
 import com.google.appengine.api.images.ImagesService;
 import com.google.appengine.api.images.ImagesServiceFactory;
+import com.google.appengine.api.mail.MailService;
+import com.google.appengine.api.mail.MailServiceFactory;
+import com.google.appengine.api.mail.MailService.Message;
 
 
 public class UtilityMethods {
@@ -217,5 +221,19 @@ public class UtilityMethods {
         map.put("99", Integer.valueOf(0));
 
         return map;
+    }
+    
+    public static Exception sendErrorMail(String className, Exception e) throws IOException{
+        Message message = new Message();
+        message.setSender(PrivateConsts.ERROR_MAIL_SENDER);
+        message.setTo(PrivateConsts.ERROR_MAIL_TO);
+
+        message.setSubject(className);
+        message.setTextBody(e.toString() + "\n" + e.getMessage());
+
+        MailService mailService = MailServiceFactory.getMailService();
+        mailService.send(message);
+        
+        return e;
     }
 }
