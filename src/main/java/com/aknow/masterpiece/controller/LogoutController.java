@@ -4,17 +4,16 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
-import org.slim3.controller.Controller;
 import org.slim3.controller.Navigation;
 import org.slim3.memcache.Memcache;
 
 import com.aknow.masterpiece.util.Consts;
 import com.aknow.masterpiece.util.UtilityMethods;
 
-public class LogoutController extends Controller {
+public class LogoutController extends BaseController {
 
     @Override
-    public Navigation run() throws Exception {
+    public Navigation runImpl() throws Exception {
         HttpSession session = this.request.getSession(true);
         session.setAttribute("loginID", "");
         session.setAttribute("logon", Boolean.FALSE);
