@@ -19,9 +19,9 @@ public class SendController extends BaseController {
 		this.response.setContentType(Consts.CONTENT_TYPE);
 
 		//入力情報を取得
-		String to = this.request.getParameter("to");
-		String sender = this.request.getParameter("sender");
-		String content = this.request.getParameter("content");
+		String to = asString("to");
+		String sender = asString("sender");
+		String content = asString("content");
 
 		SendMessageService service = new SendMessageService();
 		service.sendMessage(to, sender, content);

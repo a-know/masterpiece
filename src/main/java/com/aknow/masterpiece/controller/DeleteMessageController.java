@@ -19,7 +19,7 @@ public class DeleteMessageController extends BaseController {
 		this.response.setContentType(Consts.CONTENT_TYPE);
 
 		//入力情報を取得
-		String keyValue = this.request.getParameter("key");
+		String keyValue = asString("key");
 		String loginIdInSession = sessionScope("loginID");
 
 		Key key = KeyFactory.stringToKey(keyValue);

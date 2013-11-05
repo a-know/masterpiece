@@ -34,22 +34,22 @@ public class PostItemController extends BaseController {
 
 		@SuppressWarnings("deprecation")
 		Map<String, BlobKey> blobs = this.blobstoreService.getUploadedBlobs(this.request);
-		String category = this.request.getParameter("postItemcategory");
-		byte[] outTestStrBtye = Base64.decodeBase64(this.request.getParameter("postItemNameHidden").getBytes());
+		String category = asString("postItemcategory");
+		byte[] outTestStrBtye = Base64.decodeBase64(asString("postItemNameHidden").getBytes());
 		String name = new String(outTestStrBtye, "utf-8");
-		outTestStrBtye = Base64.decodeBase64(this.request.getParameter("postItemCommentHidden").getBytes());
+		outTestStrBtye = Base64.decodeBase64(asString("postItemCommentHidden").getBytes());
 		String comment = new String(outTestStrBtye, "utf-8");
-		String url = this.request.getParameter("postItemUrl");
-		String isTweet = this.request.getParameter("postWithTwitter");
+		String url = asString("postItemUrl");
+		String isTweet = asString("postWithTwitter");
 		String tweetContent = "";
 		if("on".equals(isTweet)){
-			outTestStrBtye = Base64.decodeBase64(this.request.getParameter("tweetContentHidden").getBytes());
+			outTestStrBtye = Base64.decodeBase64(asString("tweetContentHidden").getBytes());
 			tweetContent = new String(outTestStrBtye, "utf-8");
 		}
 
 		HttpSession session = this.request.getSession();
 		String loginIdInSession = (String) session.getAttribute("loginID");//ログイン中のID
-		String postTargetLoginID = this.request.getParameter("postTargetLoginID");
+		String postTargetLoginID = asString("postTargetLoginID");
 		session.setAttribute("loginError", "0");
 
 		Integer unread = new Integer(0);

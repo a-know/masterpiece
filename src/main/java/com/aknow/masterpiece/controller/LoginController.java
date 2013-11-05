@@ -16,8 +16,8 @@ public class LoginController extends BaseController {
 	@Override
 	public Navigation runImpl() throws Exception {
 
-		String loginID = this.request.getParameter("loginID-loginForm");
-		String password = this.request.getParameter("password-loginForm");
+		String loginID = asString("loginID-loginForm");
+		String password = asString("password-loginForm");
 
 		LoginService service = new LoginService();
 		Map<String, Object> map = service.login(loginID, password);

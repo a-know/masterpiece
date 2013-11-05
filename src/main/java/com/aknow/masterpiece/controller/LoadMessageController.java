@@ -17,7 +17,7 @@ public class LoadMessageController extends BaseController {
 		this.response.setContentType(Consts.CONTENT_TYPE);
 
 		//入力情報を取得
-		String keyValue = this.request.getParameter("key");
+		String keyValue = asString("key");
 
 		Key key = KeyFactory.stringToKey(keyValue);
 

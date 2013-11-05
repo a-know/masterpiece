@@ -33,17 +33,17 @@ public class ChangeSettingsController extends BaseController {
 		requestScope("settingsChangeSuccess", "");
 
 		Map<String, BlobKey> blobs = null;
-		if("exists".equals(this.request.getParameter("iconFileExists"))){
+		if("exists".equals(asString("iconFileExists"))){
 			blobs = this.blobstoreService.getUploadedBlobs(this.request);
 		}
 
-		String url = this.request.getParameter("inputUrl");
-		byte[] outTestStrBtye = Base64.decodeBase64(this.request.getParameter("inputIntroductionHidden").getBytes());
+		String url = asString("inputUrl");
+		byte[] outTestStrBtye = Base64.decodeBase64(asString("inputIntroductionHidden").getBytes());
 		String introduction = new String(outTestStrBtye, "utf-8");
 
 		HttpSession session = this.request.getSession();
 		String loginIdInSession = (String) session.getAttribute("loginID");//ログイン中のID
-		String targetLoginID = this.request.getParameter("settingTargetLoginID");
+		String targetLoginID = asString("settingTargetLoginID");
 		session.setAttribute("loginError", "0");
 
 		Integer unread = new Integer(0);

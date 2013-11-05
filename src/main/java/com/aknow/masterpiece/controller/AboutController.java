@@ -19,7 +19,7 @@ public class AboutController extends BaseController {
 	public Navigation runImpl() throws Exception {
 
 		HttpSession session = this.request.getSession();
-		String requestLoginId = this.request.getParameter("loginID");
+		String requestLoginId = asString("loginID");
 		String loginIdInSession = (String) session.getAttribute("loginID");
 		session.setAttribute("loginError", "0");
 

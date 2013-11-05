@@ -20,7 +20,7 @@ public class CallbackController extends BaseController {
 		AccessToken accessToken = null;
 		Twitter twitter = (Twitter) this.request.getSession().getAttribute("twitter");
 		RequestToken requestToken = (RequestToken) this.request.getSession().getAttribute("reqToken");
-		String verifier = this.request.getParameter("oauth_verifier");
+		String verifier = asString("oauth_verifier");
 		String loginID = (String) this.request.getSession().getAttribute("loginID");
 
 		//AccessTokenの取得
@@ -43,10 +43,6 @@ public class CallbackController extends BaseController {
 		this.request.getSession().setAttribute("twitter_success", 1);//twitter連携成功
 		this.request.getSession().setAttribute("see_twitter_success", 0);//twitter連携成功を確認済みか？
 
-
-		this.response.sendRedirect("http://master-piece.appspot.com/user/" + loginID);
-
-
-		return null;
+		return redirect("http://master-piece.appspot.com/user/" + loginID);
 	}
 }

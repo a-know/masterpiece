@@ -26,17 +26,17 @@ public class EditItemController extends BaseController {
 
 		this.request.setCharacterEncoding("UTF-8");
 
-		String category = this.request.getParameter("editItemcategory");
-		byte[] outTestStrBtye = Base64.decodeBase64(this.request.getParameter("editItemNameHidden").getBytes());
+		String category = asString("editItemcategory");
+		byte[] outTestStrBtye = Base64.decodeBase64(asString("editItemNameHidden").getBytes());
 		String name = new String(outTestStrBtye, "utf-8");
-		outTestStrBtye = Base64.decodeBase64(this.request.getParameter("editItemCommentHidden").getBytes());
+		outTestStrBtye = Base64.decodeBase64(asString("editItemCommentHidden").getBytes());
 		String comment = new String(outTestStrBtye, "utf-8");
-		String url = this.request.getParameter("editItemUrl");
-		String key = this.request.getParameter("editTargetItemKey");
+		String url = asString("editItemUrl");
+		String key = asString("editTargetItemKey");
 
 		HttpSession session = this.request.getSession();
 		String loginIdInSession = (String) session.getAttribute("loginID");//ログイン中のID
-		String editTargetLoginID = this.request.getParameter("editTargetLoginID");
+		String editTargetLoginID = asString("editTargetLoginID");
 		session.setAttribute("loginError", "0");
 
 		Integer unread = new Integer(0);

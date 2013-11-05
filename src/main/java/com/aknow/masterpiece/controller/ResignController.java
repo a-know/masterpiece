@@ -20,8 +20,8 @@ public class ResignController extends BaseController {
 
 		this.response.setContentType(Consts.CONTENT_TYPE);
 
-		String loginID = this.request.getParameter("loginID");
-		String loginIDinSession = this.request.getParameter("loginIDinSession");
+		String loginID = asString("loginID");
+		String loginIDinSession = asString("loginIDinSession");
 
 		Integer unread = new Integer(0);
 		if(loginIDinSession != null){

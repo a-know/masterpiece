@@ -18,8 +18,8 @@ public class UserRegistController extends BaseController {
 
 		this.response.setContentType(Consts.CONTENT_TYPE);
 
-		String loginID = this.request.getParameter("loginID");
-		String password = this.request.getParameter("password");
+		String loginID = asString("loginID");
+		String password = asString("password");
 
 		UserRegistService service = new UserRegistService();
 		Map<String, Object> map = service.userRegist(loginID, password);

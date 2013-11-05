@@ -19,8 +19,6 @@ public class TwitterOauthController extends BaseController {
 		this.request.getSession().setAttribute("twitter", twitter);
 		this.request.getSession().setAttribute("reqToken", reqToken);
 
-		this.response.sendRedirect(reqToken.getAuthenticationURL());
-
-		return null;
+		return redirect(reqToken.getAuthenticationURL());
 	}
 }

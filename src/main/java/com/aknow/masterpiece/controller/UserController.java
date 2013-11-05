@@ -23,8 +23,8 @@ public class UserController extends BaseController {
 	public Navigation runImpl() throws Exception {
 
 		HttpSession session = this.request.getSession();
-		String function = this.request.getParameter("function");
-		String requestLoginId = this.request.getParameter("loginID");
+		String function = asString("function");
+		String requestLoginId = asString("loginID");
 		String loginIdInSession = (String) session.getAttribute("loginID");
 
 		requestScope("loginID_this_page", requestLoginId);
@@ -163,7 +163,7 @@ public class UserController extends BaseController {
 			return forward("/post.jsp");
 		}else if("page".equals(function)){
 			UserTopService service = new UserTopService();
-			String requestPage = this.request.getParameter("pageCount");
+			String requestPage = asString("pageCount");
 			User user = service.getUser(requestLoginId);
 			Map<String, Object> userMap = service.getUser(user);
 			requestScope("user", userMap);
@@ -199,7 +199,7 @@ public class UserController extends BaseController {
 			requestScope("currentPage", Integer.parseInt(requestPage));
 			return forward("/page.jsp");
 		}else if("item".equals(function)){
-			String itemKey = this.request.getParameter("itemKey");
+			String itemKey = asString("itemKey");
 			UserTopService service = new UserTopService();
 			User user = service.getUser(requestLoginId);
 			Map<String, Object> userMap = service.getUser(user);
@@ -224,7 +224,7 @@ public class UserController extends BaseController {
 			requestScope("imageUrlList", imageUrlList);
 			return forward("/item.jsp");
 		}else if("list".equals(function)){
-			String pageNo = this.request.getParameter("pageNo");
+			String pageNo = asString("pageNo");
 			UserTopService service = new UserTopService();
 			User user = service.getUser(requestLoginId);
 			Map<String, Object> userMap = service.getUser(user);
@@ -322,7 +322,7 @@ public class UserController extends BaseController {
 			requestScope("messageValueList", messageList.get(1));
 			return forward("/read.jsp");
 		}else if("edit".equals(function)){
-			String itemKey = this.request.getParameter("itemKey");
+			String itemKey = asString("itemKey");
 			UserTopService service = new UserTopService();
 			User user = service.getUser(loginIdInSession);
 			Map<String, Object> userMap = service.getUser(user);

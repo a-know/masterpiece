@@ -19,8 +19,6 @@ public class TwitterReleaseController extends BaseController {
 		this.request.getSession().setAttribute("twitter_release_success", 1);//twitter連携解除成功
 		this.request.getSession().setAttribute("see_twitter_release_success", 0);//twitter連携解除成功を確認済みか？
 
-		this.response.sendRedirect("/user/" + loginID);
-
-		return null;
+		return redirect("/user/" + loginID);
 	}
 }

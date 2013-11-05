@@ -22,7 +22,7 @@ public class CategorySearchController extends BaseController {
 	public Navigation runImpl() throws Exception {
 
 		HttpSession session = this.request.getSession();
-		String requestLoginId = this.request.getParameter("loginID");
+		String requestLoginId = asString("loginID");
 		String loginIdInSession = (String) session.getAttribute("loginID");
 		session.setAttribute("loginError", "0");
 
@@ -66,8 +66,8 @@ public class CategorySearchController extends BaseController {
 		requestScope("countByCategoryMap", countByCategoryMap);
 
 		//カテゴリ検索実施・その結果をセット
-		String categoryCode = this.request.getParameter("categoryCode");
-		String pageNo = this.request.getParameter("pageNo");
+		String categoryCode = asString("categoryCode");
+		String pageNo = asString("pageNo");
 		CategorySearchService service = new CategorySearchService();
 		UserTopService userService = new UserTopService();
 
