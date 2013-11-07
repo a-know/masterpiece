@@ -4,7 +4,10 @@
   <version>100</version>
 
   <static-files>
-    <include path="/**.*"/>
+    <include path="/css/*.css"/>
+    <include path="/images/*.*"/>
+    <include path="/img/*.*"/>
+    <include path="/js/*.js"/>
   </static-files>
   
   <precompilation-enabled>true</precompilation-enabled>
