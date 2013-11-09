@@ -31,25 +31,31 @@ public class PostItemController extends BaseController {
 	public Navigation runImpl() throws Exception {
 
 		this.request.setCharacterEncoding("UTF-8");
+		
+		@SuppressWarnings("unchecked")
+		Map<String, String[]> paramMap = this.request.getParameterMap();
 
 		@SuppressWarnings("deprecation")
 		Map<String, BlobKey> blobs = this.blobstoreService.getUploadedBlobs(this.request);
-		String category = asString("postItemcategory");
-		byte[] outTestStrBtye = Base64.decodeBase64(asString("postItemNameHidden").getBytes());
+		String category = ((String[]) paramMap.get("postItemcategory"))[0];
+		byte[] outTestStrBtye = Base64.decodeBase64(((String[]) paramMap.get("postItemNameHidden"))[0].getBytes());
 		String name = new String(outTestStrBtye, "utf-8");
-		outTestStrBtye = Base64.decodeBase64(asString("postItemCommentHidden").getBytes());
+		outTestStrBtye = Base64.decodeBase64(((String[]) paramMap.get("postItemCommentHidden"))[0].getBytes());
 		String comment = new String(outTestStrBtye, "utf-8");
-		String url = asString("postItemUrl");
-		String isTweet = asString("postWithTwitter");
+		String url = ((String[]) paramMap.get("postItemUrl"))[0];
+		String isTweet = "off";
+		if (paramMap.get("postWithTwitter") != null){
+			isTweet = ((String[]) paramMap.get("postWithTwitter"))[0];
+		}
 		String tweetContent = "";
 		if("on".equals(isTweet)){
-			outTestStrBtye = Base64.decodeBase64(asString("tweetContentHidden").getBytes());
+			outTestStrBtye = Base64.decodeBase64(((String[]) paramMap.get("tweetContentHidden"))[0].getBytes());
 			tweetContent = new String(outTestStrBtye, "utf-8");
 		}
 
 		HttpSession session = this.request.getSession();
 		String loginIdInSession = (String) session.getAttribute("loginID");//ログイン中のID
-		String postTargetLoginID = asString("postTargetLoginID");
+		String postTargetLoginID = ((String[]) paramMap.get("postTargetLoginID"))[0];
 		session.setAttribute("loginError", "0");
 
 		Integer unread = new Integer(0);

@@ -73,7 +73,7 @@ $(function(){
 				return;
 			}
 		}
-		if(isTweet==true){
+		if(isTweet==true || isTweet == 'checked'){
 			if(tweetContent.length > 140){
 				$('#post-tweet-content').html("ツイート内容は140文字以内で入力して下さい。");
 				$('#post-tweet-content').addClass('help-inline');
@@ -100,7 +100,7 @@ $(function(){
 		}else{
 			$('#urlOnModal').html(url);
 		}
-		if(isTweet==true){
+		if(isTweet==true || isTweet == 'checked'){
 			$('#isTweetOnModal').html("Twitterにも投稿する");
 			$('#tweetContentOnModal').html(tweetContent);
 		}else{
