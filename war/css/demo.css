@@ -1,0 +1,14 @@
+.headcontent{
+	font: 12px "Meiryo","ƒƒCƒŠƒI","Hiragino Kaku Gothic Pro","ƒqƒ‰ƒMƒmŠpƒS Pro W3","MS P Gothic","‚l‚r ‚oƒSƒVƒbƒN",Osaka,Verdana,Arial, Helvetica, sans-serif;
+	position:absolute;
+	top: 120px;
+	left:1px;
+	width:70%;
+	min-width:315px;
+	z-index:100;
+	display:none;
+}
+.headinner{
+	padding:10px;
+	background:transparent url(../images/black.png) repeat top left;
+}

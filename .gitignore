@@ -3,3 +3,4 @@ build.properties
 target
 war/WEB-INF/lib
 war/WEB-INF/classes
+PrivateConsts.java

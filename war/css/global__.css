@@ -1,0 +1,121 @@
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+      .carousel {
+        background-color: #330000;
+      }
+      .carousel .item > img {
+        margin: 0 auto;
+        height: 480px;
+      }
+      .navbar-inner {
+        background-color: #330000;
+        background-image: -moz-linear-gradient(top, #330000, #330000);
+        background-image: -ms-linear-gradient(top, #330000, #330000);
+        background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#330000), to(#330000));
+        background-image: -webkit-linear-gradient(top, #330000, #330000);
+        background-image: -o-linear-gradient(top, #330000, #330000);
+        background-image: linear-gradient(top, #330000, #330000);
+        background-repeat: repeat-x;
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#330000', endColorstr='#330000', GradientType=0);
+      }
+      .class_box_shadow {
+        margin: auto;
+        background: #ccc;
+        border: 5px solid white;
+        position:relative;
+        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.47);
+        -moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.47);
+        -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.47);
+       }
+      .popover-title {
+        font: 12px "Meiryo","メイリオ","Hiragino Kaku Gothic Pro","ヒラギノ角ゴ Pro W3","MS P Gothic","ＭＳ Ｐゴシック",Osaka,Verdana,Arial, Helvetica, sans-serif;
+      }
+      .popover-content p {
+        font: 11px "Meiryo","メイリオ","Hiragino Kaku Gothic Pro","ヒラギノ角ゴ Pro W3","MS P Gothic","ＭＳ Ｐゴシック",Osaka,Verdana,Arial, Helvetica, sans-serif;
+      }
+.carousel-caption{
+font: 12px "Meiryo","メイリオ","Hiragino Kaku Gothic Pro","ヒラギノ角ゴ Pro W3","MS P Gothic","ＭＳ Ｐゴシック",Osaka,Verdana,Arial, Helvetica, sans-serif;
+}
+
+.caption{
+font: 12px "Meiryo","メイリオ","Hiragino Kaku Gothic Pro","ヒラギノ角ゴ Pro W3","MS P Gothic","ＭＳ Ｐゴシック",Osaka,Verdana,Arial, Helvetica, sans-serif;
+}
+.caption p{
+font: 12px "Meiryo","メイリオ","Hiragino Kaku Gothic Pro","ヒラギノ角ゴ Pro W3","MS P Gothic","ＭＳ Ｐゴシック",Osaka,Verdana,Arial, Helvetica, sans-serif;
+}
+
+.nav-collapse {
+font: 12px "Meiryo","メイリオ","Hiragino Kaku Gothic Pro","ヒラギノ角ゴ Pro W3","MS P Gothic","ＭＳ Ｐゴシック",Osaka,Verdana,Arial, Helvetica, sans-serif;
+}
+
+.nav-collapse button {
+font: 12px "Meiryo","メイリオ","Hiragino Kaku Gothic Pro","ヒラギノ角ゴ Pro W3","MS P Gothic","ＭＳ Ｐゴシック",Osaka,Verdana,Arial, Helvetica, sans-serif;
+}
+
+.nav-collapse input {
+font: 12px "Meiryo","メイリオ","Hiragino Kaku Gothic Pro","ヒラギノ角ゴ Pro W3","MS P Gothic","ＭＳ Ｐゴシック",Osaka,Verdana,Arial, Helvetica, sans-serif;
+}
+
+/* --- ボックス --- */
+div.section {
+padding-bottom: 1px; /* ボックスの下パディング */
+background-color: #f5f5f5; /* ボックスの背景色 */
+font: 12px "Meiryo","メイリオ","Hiragino Kaku Gothic Pro","ヒラギノ角ゴ Pro W3","MS P Gothic","ＭＳ Ｐゴシック",Osaka,Verdana,Arial, Helvetica, sans-serif;
+font-size: 80%; /* ボックスの文字サイズ */
+border-top-left-radius:10px 10px;
+border-top-right-radius:10px 10px;
+border-bottom-left-radius:10px 10px;
+border-bottom-right-radius:10px 10px;
+margin: 10px 0 10px 0;
+}
+
+/* --- 見出しエリア --- */
+div.section div.heading {
+margin: 0 0 1em; /* 見出しエリアのマージン（上、左右、下） */
+padding: 5px; /* 見出しエリアのパディング */
+background-color: #330000;
+border: 1px #666666 solid; /* 見出しエリアの境界線 */
+border-top-left-radius:10px 10px;
+border-top-right-radius:10px 10px;
+}
+
+/* --- 見出し --- */
+div.heading h3 {
+margin: 0;
+padding: 2px 0 2px 7px; /* 見出しのパディング（上右下左） */
+border-left: 4px #cccccc solid; /* 見出しの左境界線 */
+font-family: "メイリオ","Meiryo";
+font-size: 120%; /* 見出しの文字サイズ */
+color: #f9f9f9; /* 見出しの文字色 */
+line-height: 100%;
+}
+
+/* --- ボックス内の段落 --- */
+div.content {
+padding: 1px 0 10px 0px; /* 見出しのパディング（上右下左） */
+margin: 0em 10px; /* 段落のマージン（上下、左右） */
+font-family: "メイリオ","Meiryo";
+font-size: 110%; /* 見出しの文字サイズ */
+}
+div.icon {
+float: left;
+margin: 0px 3px 0px 0px; /* 段落のマージン（上右下左） */
+}
+.star-box {
+  color: #3a87ad;
+  padding: 8px 35px 8px 14px;
+  margin-bottom: 18px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  background-color: #fcf8e3;
+  border: 1px solid #fbeed5;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}

@@ -13,20 +13,23 @@ import com.aknow.masterpiece.service.IndexService;
 import com.aknow.masterpiece.util.Consts;
 import com.aknow.masterpiece.util.UtilityMethods;
 
-public class IndexController extends BaseController {
+public class AboutController extends BaseController {
 
 	@Override
 	public Navigation runImpl() throws Exception {
 
-		IndexService service = new IndexService();
-		Integer unread = new Integer(0);
-
 		HttpSession session = this.request.getSession();
+		String requestLoginId = asString("loginID");
+		String loginIdInSession = (String) session.getAttribute("loginID");
+		session.setAttribute("loginError", "0");
 
+		requestScope("loginID_this_page", requestLoginId);
+		requestScope("loginIdInSession", loginIdInSession);
+
+		Integer unread = new Integer(0);
 		if(session.getAttribute("logon") == null){
 			session.setAttribute("logon", Boolean.FALSE);
 		}else if(((Boolean)session.getAttribute("logon")).booleanValue()){
-			String loginIdInSession = (String) session.getAttribute("loginID");
 			Map<String, Object> user = UtilityMethods.getUser(loginIdInSession);
 			requestScope("user", user);
 
@@ -38,23 +41,6 @@ public class IndexController extends BaseController {
 			}
 		}
 		requestScope("unread", unread);
-
-		//スライドショーの情報取得
-		List<Map<String, Object>> slideList = Memcache.get(Consts.SlideDataList_KEY);
-		if(slideList == null){
-			slideList = service.getSlideList();
-			Memcache.put(Consts.SlideDataList_KEY, slideList);
-		}
-		requestScope("slideList", slideList);
-
-		//新着６アイテムの情報取得
-		List<Map<String, Object>> latestList = Memcache.get(Consts.LatestDataList_KEY);
-		if(latestList == null){
-			latestList = service.getLatestList();
-			Memcache.put(Consts.LatestDataList_KEY, latestList);
-		}
-		requestScope("latestList", latestList);
-
 
 		//アクティビティ情報（全体）の取得
 		IndexService indexService = new IndexService();
@@ -68,7 +54,6 @@ public class IndexController extends BaseController {
 		requestScope("activityList", activityList);
 		requestScope("activityUserList", activityUserList);
 
-
 		//カテゴリごとのアイテム数の取得
 		Map<String, Integer> countByCategoryMap = Memcache.get(Consts.CountByCategoryMap_KEY);
 		if(countByCategoryMap == null){
@@ -77,7 +62,7 @@ public class IndexController extends BaseController {
 		}
 		requestScope("countByCategoryMap", countByCategoryMap);
 
+		return forward("/about.jsp");
 
-		return forward("index.jsp");
 	}
 }
