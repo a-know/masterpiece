@@ -347,7 +347,7 @@
         <a href="http://b.hatena.ne.jp/entry/http://master-piece.appspot.com/" class="hatena-bookmark-button" data-hatena-bookmark-title="Masterpiece(β) - あなたの愛用品、教えてください。" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a>
         <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://master-piece.appspot.com" data-text="Masterpiece(β) - あなたの愛用品、教えてください。" data-lang="ja">ツイート</a><br>
         <div class="fb-like" data-href="http://master-piece.appspot.com/" data-send="false" data-layout="button_count" data-width="350" data-show-faces="false"></div>
-        <p>Icons from <a href="http://glyphicons.com">Glyphicons Free</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+        <p><img src="https://developers.google.com/appengine/images/appengine-noborder-120x30.gif" alt="Powered by Google App Engine" />Icons from <a href="http://glyphicons.com">Glyphicons Free</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
         <script type="text/javascript"><!--
           hatena_counter_name = "a-know";
           hatena_counter_id = "13";
