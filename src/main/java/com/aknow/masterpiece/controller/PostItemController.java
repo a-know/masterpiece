@@ -37,25 +37,25 @@ public class PostItemController extends BaseController {
 
 		@SuppressWarnings("deprecation")
 		Map<String, BlobKey> blobs = this.blobstoreService.getUploadedBlobs(this.request);
-		String category = ((String[]) paramMap.get("postItemcategory"))[0];
-		byte[] outTestStrBtye = Base64.decodeBase64(((String[]) paramMap.get("postItemNameHidden"))[0].getBytes());
+		String category = paramMap.get("postItemcategory")[0];
+		byte[] outTestStrBtye = Base64.decodeBase64(paramMap.get("postItemNameHidden")[0].getBytes());
 		String name = new String(outTestStrBtye, "utf-8");
-		outTestStrBtye = Base64.decodeBase64(((String[]) paramMap.get("postItemCommentHidden"))[0].getBytes());
+		outTestStrBtye = Base64.decodeBase64(paramMap.get("postItemCommentHidden")[0].getBytes());
 		String comment = new String(outTestStrBtye, "utf-8");
-		String url = ((String[]) paramMap.get("postItemUrl"))[0];
+		String url = paramMap.get("postItemUrl")[0];
 		String isTweet = "off";
 		if (paramMap.get("postWithTwitter") != null){
-			isTweet = ((String[]) paramMap.get("postWithTwitter"))[0];
+			isTweet = paramMap.get("postWithTwitter")[0];
 		}
 		String tweetContent = "";
 		if("on".equals(isTweet)){
-			outTestStrBtye = Base64.decodeBase64(((String[]) paramMap.get("tweetContentHidden"))[0].getBytes());
+			outTestStrBtye = Base64.decodeBase64(paramMap.get("tweetContentHidden")[0].getBytes());
 			tweetContent = new String(outTestStrBtye, "utf-8");
 		}
 
 		HttpSession session = this.request.getSession();
 		String loginIdInSession = (String) session.getAttribute("loginID");//ログイン中のID
-		String postTargetLoginID = ((String[]) paramMap.get("postTargetLoginID"))[0];
+		String postTargetLoginID = paramMap.get("postTargetLoginID")[0];
 		session.setAttribute("loginError", "0");
 
 		Integer unread = new Integer(0);
